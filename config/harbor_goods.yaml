@@ -1,0 +1,138 @@
+# Harbor Goods Co. - Brand Configuration
+# Fictional Shopify brand for Profit Intelligence demo
+
+brand:
+  name: "Harbor Goods Co."
+  tagline: "Heritage-inspired goods for modern life"
+  founded: 2019
+  platform: "shopify"
+  currency: "USD"
+  
+# Financial targets (used for data generation and benchmarking)
+financial:
+  monthly_revenue_target: 80000
+  target_cogs_percentage: 0.35  # 35% target COGS
+  monthly_ad_spend: 22000
+  target_roas: 3.0
+  target_net_margin: 0.15  # 15% net margin goal
+
+# Product catalog (3 core products)
+products:
+  - sku: "HG-TSHIRT-001"
+    name: "Heritage Cotton Tee"
+    category: "Apparel"
+    retail_price: 48.00
+    cogs_per_unit: 16.80
+    shipping_cost: 4.50
+    weight_grams: 250
+    description: "Premium 100% organic cotton, heritage wash"
+    
+  - sku: "HG-CAP-001"
+    name: "Canvas Field Cap"
+    category: "Accessories"
+    retail_price: 38.00
+    cogs_per_unit: 13.30
+    shipping_cost: 3.50
+    weight_grams: 150
+    description: "Waxed canvas with leather strap"
+    
+  - sku: "HG-BAG-001"
+    name: "Waxed Tote Bag"
+    category: "Bags"
+    retail_price: 85.00
+    cogs_per_unit: 29.75
+    shipping_cost: 6.00
+    weight_grams: 450
+    description: "Waxed canvas tote, brass hardware"
+
+# Cost structure
+costs:
+  # Payment processing (Stripe/Shopify Payments)
+  processing_rate: 0.029  # 2.9%
+  processing_fixed: 0.30  # $0.30 per transaction
+  
+  # Shipping
+  free_shipping_threshold: 75.00
+  domestic_shipping_base: 4.50
+  
+  # Overhead allocation (optional)
+  overhead_percentage: 0.05  # 5% allocated to each order
+
+# Marketing channels
+marketing:
+  # Meta (Facebook/Instagram) - 60% of budget
+  meta:
+    percentage_of_budget: 0.60
+    daily_budget: 530.00  # ~$15,900/month
+    campaigns:
+      - name: "Prospecting - Broad"
+        budget_percentage: 0.35
+        target_roas: 3.0
+        cpm: 12.50
+        ctr: 0.015
+      
+      - name: "Retargeting - ATC"
+        budget_percentage: 0.25
+        target_roas: 5.0
+        cpm: 8.00
+        ctr: 0.045
+      
+      - name: "Retargeting - View Content"
+        budget_percentage: 0.15
+        target_roas: 4.0
+        cpm: 6.50
+        ctr: 0.035
+      
+      - name: "Lookalike - Top 5%"
+        budget_percentage: 0.25
+        target_roas: 2.5
+        cpm: 15.00
+        ctr: 0.012
+  
+  # Google Ads - 30% of budget  
+  google:
+    percentage_of_budget: 0.30
+    daily_budget: 220.00  # ~$6,600/month
+    campaigns:
+      - name: "Search - Brand"
+        budget_percentage: 0.30
+        target_roas: 8.0
+        cpc: 0.80
+      
+      - name: "Search - Non-Brand"
+        budget_percentage: 0.40
+        target_roas: 2.5
+        cpc: 3.50
+      
+      - name: "Shopping - PLA"
+        budget_percentage: 0.30
+        target_roas: 3.0
+        cpc: 1.20
+  
+  # Reserved for future channels (TikTok, Pinterest, etc.)
+  other:
+    percentage_of_budget: 0.10
+    daily_budget: 73.00
+
+# Customer behavior assumptions
+customer_behavior:
+  new_customer_rate: 0.65  # 65% new, 35% repeat
+  average_items_per_order: 1.6
+  discount_usage_rate: 0.15  # 15% of orders use discount
+  refund_rate: 0.03  # 3% refund rate
+  
+# Seasonality (day of week multipliers)
+seasonality:
+  monday: 0.85
+  tuesday: 0.90
+  wednesday: 0.95
+  thursday: 0.95
+  friday: 1.15
+  saturday: 1.20
+  sunday: 1.00
+
+# Demo data settings
+demo:
+  days_of_history: 90
+  start_date: "auto"  # auto = 90 days ago
+  output_format: "csv"  # csv, json, or bigquery
