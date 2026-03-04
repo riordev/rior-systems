@@ -1,0 +1,71 @@
+# Alert Configuration for Rior Systems
+# Client-specific thresholds and notification settings
+
+clients:
+  # Example client configuration
+  example_client:
+    # Product/Store settings
+    products:
+      - name: "Product A"
+        product_id: "prod_123"
+        break_even_roas: 2.5
+        ad_spend_daily_limit: 500.00
+    
+    # Alert thresholds
+    thresholds:
+      scale_signal:
+        roas_threshold_pct: 30  # ROAS > break-even + 30%
+        consecutive_days: 3
+      
+      underperformance:
+        roas_below_break_even_days: 2
+      
+      critical:
+        roas_below_break_even_pct: 20  # ROAS < break-even - 20%
+        no_sales_hours: 24
+      
+      data_integrity:
+        missing_data_hours: 6
+    
+    # Cooldown periods (hours)
+    cooldowns:
+      scale_signal: 168      # 1 week
+      underperformance: 48   # 2 days
+      critical: 12           # 12 hours
+      data_integrity: 24     # 1 day
+
+# Notification settings
+notifications:
+  discord:
+    enabled: true
+    webhook_url: "${DISCORD_WEBHOOK_URL}"  # Set via env var
+    channel: "#alerts"
+  
+  imessage:
+    enabled: false
+    recipients:
+      - "+1234567890"
+  
+  email:
+    enabled: false
+    smtp:
+      host: "smtp.gmail.com"
+      port: 587
+      user: "${EMAIL_USER}"
+      password: "${EMAIL_PASS}"
+    recipients:
+      - "alerts@riorsystems.com"
+
+# BigQuery settings
+bigquery:
+  project_id: "${BIGQUERY_PROJECT_ID}"
+  dataset: "rior_analytics"
+  metrics_table: "client_metrics"
+  alerts_table: "alerts"
+
+# Alert severity colors (Discord embeds)
+severity_colors:
+  scale_signal: 3066993      # Green
+  underperformance: 15105570 # Amber
+  critical: 15158332         # Red
+  data_integrity: 3447003    # Blue
