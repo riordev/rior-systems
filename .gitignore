@@ -23,4 +23,6 @@ __pycache__/
 Thumbs.db
 
 # Logs
+*.lognode_modules/
+.next/
 *.log
