@@ -26,3 +26,5 @@ Thumbs.db
 *.lognode_modules/
 .next/
 *.log
+harbor-demo-v2/node_modules/
+admin-panel/node_modules/
