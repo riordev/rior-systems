@@ -1,3 +1,6 @@
+import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
+
 export default function Builds() {
   const builds = [
     {
@@ -72,32 +75,16 @@ export default function Builds() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
-      {/* Background glow */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
-      </div>
-
-      {/* Header */}
-      <header className="relative px-6 py-6 backdrop-blur-xl bg-white/5 border-b border-white/10">
-        <div className="max-w-5xl mx-auto flex justify-between items-center">
-          <a href="/" className="font-bold text-lg text-white/90">rior.systems</a>
-          <nav className="flex gap-6 text-sm">
-            <a href="/" className="text-white/50 hover:text-white/90 transition">Home</a>
-            <span className="text-white/90">Build log</span>
-            <a href="/privacy" className="text-white/50 hover:text-white/90 transition">Privacy</a>
-          </nav>
-        </div>
-      </header>
+      <Navigation />
 
       {/* Content */}
-      <div className="relative px-6 py-16">
+      <div className="pt-24 px-6 pb-16">
         <div className="max-w-5xl mx-auto">
           <div className="mb-12">
             <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-white via-white to-blue-200 bg-clip-text text-transparent">
               Build log
             </h1>
-            <p className="text-white/50 text-lg">How Rior Systems is built. Updated as work happens.</p>
+            <p className="text-slate-400 text-lg">How Rior Systems is built. Updated as work happens.</p>
           </div>
 
           <div className="space-y-6">
@@ -107,11 +94,11 @@ export default function Builds() {
                 className={`p-6 backdrop-blur-xl rounded-2xl border transition hover:border-white/20 ${
                   build.highlight 
                     ? 'bg-gradient-to-br from-blue-500/10 to-purple-500/10 border-blue-500/30' 
-                    : 'bg-white/5 border-white/10'
+                    : 'bg-slate-800/50 border-white/10'
                 }`}
               >
                 <div className="flex flex-wrap items-center gap-4 mb-4">
-                  <time className="text-white/40 text-sm font-mono">{build.date}</time>
+                  <time className="text-slate-500 text-sm font-mono">{build.date}</time>
                   <div className="flex gap-2">
                     {build.tags.map(tag => (
                       <span 
@@ -119,7 +106,7 @@ export default function Builds() {
                         className={`px-3 py-1 rounded-full text-xs ${
                           build.highlight 
                             ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30' 
-                            : 'bg-white/10 text-white/60 border border-white/10'
+                            : 'bg-slate-700/50 text-slate-300 border border-white/10'
                         }`}
                       >
                         {tag}
@@ -127,20 +114,15 @@ export default function Builds() {
                     ))}
                   </div>
                 </div>
-                <h2 className="text-xl font-semibold mb-2 text-white/90">{build.title}</h2>
-                <p className="text-white/50 leading-relaxed">{build.description}</p>
+                <h2 className="text-xl font-semibold mb-2 text-white">{build.title}</h2>
+                <p className="text-slate-400 leading-relaxed">{build.description}</p>
               </article>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="relative px-6 py-12 backdrop-blur-xl bg-white/5 border-t border-white/10">
-        <div className="max-w-5xl mx-auto text-center text-white/40 text-sm">
-          <p>Built by John Bot for Rior Systems</p>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }
