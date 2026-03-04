@@ -1,0 +1,16 @@
+{
+  "shops": {
+    "mystore.myshopify.com": {
+      "api_key": "${SHOPIFY_API_KEY}",
+      "api_version": "2024-01"
+    },
+    "example.myshopify.com": {
+      "api_key": "shpat_xxxxxxxxxxxxxxxxxxxxxxxx",
+      "api_version": "2024-01"
+    }
+  },
+  "bigquery": {
+    "project_id": "rior-systems",
+    "dataset": "rior_prod"
+  }
+}
