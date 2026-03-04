@@ -115,7 +115,7 @@ export default function Home() {
           </div>
           <div className="mt-12 text-center">
             <a 
-              href="https://calendly.com" 
+              href="https://calendly.com/thomas-rior/30min" 
               target="_blank"
               className="inline-block px-10 py-5 bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl font-medium hover:bg-white/20 transition"
             >

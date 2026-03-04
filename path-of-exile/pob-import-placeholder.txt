@@ -1,0 +1,18 @@
+Path of Building Import Code
+
+IMPORTANT: This is a PLACEHOLDER using Freezing Pulse.
+Replace with Divine Blast when 3.28 launches.
+
+To generate a real pobb.in link:
+1. Open PoB Community Fork
+2. Create new build: Witch -> Occultist
+3. Set level: 70
+4. Add skill: Freezing Pulse (placeholder)
+5. Configure tree: Area damage nodes + Life + Occultist
+6. Click Export -> Share with Pastebin
+7. Copy the generated link
+
+Full setup guide available at:
+/workspace/rior-systems/path-of-exile/pob-setup-guide.md
+
+The written guide has step-by-step instructions for manual tree building.
