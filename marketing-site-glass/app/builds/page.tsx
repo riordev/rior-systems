@@ -55,12 +55,6 @@ export default function Builds() {
     },
     {
       date: "2026-03-02",
-      title: "D&D campaign 'The Shattered Veil'",
-      description: "205+ page campaign world with 5 locations, 6 factions, 12-session arc. Critical Role-level depth.",
-      tags: ["dnd", "content"]
-    },
-    {
-      date: "2026-03-02",
       title: "Multi-agent system live",
       description: "5 agents: main (Kimi), samantha (coding), jackson (writing), harper (heartbeats), atlas (search).",
       tags: ["agents", "infrastructure"]
