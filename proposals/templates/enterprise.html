@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Profit Intelligence - {{CLIENT_NAME}}</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #fff;
+        }
+        
+        .proposal-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 28px;
+            padding: 50px;
+            margin-bottom: 30px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.12);
+            padding-bottom: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #f5af19 0%, #f12711 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .header .tier-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(245, 175, 25, 0.2), rgba(241, 39, 17, 0.2));
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 20px;
+            border: 1px solid rgba(245, 175, 25, 0.4);
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .section h2::before {
+            content: '';
+            width: 5px;
+            height: 28px;
+            background: linear-gradient(180deg, #f5af19, #f12711);
+            border-radius: 3px;
+        }
+        
+        .section p, .section li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .section ul li {
+            padding: 10px 0 10px 32px;
+            position: relative;
+        }
+        
+        .section ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #f5af19;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .highlight-box {
+            background: rgba(245, 175, 25, 0.1);
+            border: 1px solid rgba(245, 175, 25, 0.25);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 25px 0;
+        }
+        
+        .highlight-box h3 {
+            color: #f5af19;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 25px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(245, 175, 25, 0.3);
+        }
+        
+        .feature-card h4 {
+            color: #f5af19;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        
+        .feature-card p {
+            font-size: 1rem;
+            opacity: 0.85;
+            line-height: 1.6;
+        }
+        
+        .price-section {
+            background: linear-gradient(135deg, rgba(245, 175, 25, 0.15), rgba(241, 39, 17, 0.15));
+            border: 2px solid rgba(245, 175, 25, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .price-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .price-custom {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #f5af19, #f12711);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .timeline {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 25px;
+            border-radius: 16px;
+            margin: 25px 0;
+        }
+        
+        .timeline-icon {
+            font-size: 2.5rem;
+        }
+        
+        .enterprise-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .benefit-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+        }
+        
+        .benefit-item .icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .benefit-item h4 {
+            color: #f5af19;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        
+        .footer p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #f5af19, #f12711);
+            color: #fff;
+            padding: 18px 50px;
+            border-radius: 35px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-top: 25px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(245, 175, 25, 0.4);
+        }
+        
+        @media print {
+            body {
+                background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="proposal-container">
+        <div class="glass-card">
+            <div class="header">
+                <h1>Enterprise Profit Intelligence</h1>
+                <p style="font-size: 1.3rem; opacity: 0.9; margin-top: 15px;">Strategic Partnership Proposal</p>
+                <p style="font-size: 1.1rem; opacity: 0.8; margin-top: 10px;">Prepared for {{CLIENT_NAME}}</p>
+                <span class="tier-badge">Enterprise Tier — Multi-Store & Advanced Integrations</span>
+            </div>
+            
+            <div class="section">
+                <h2>Executive Summary</h2>
+                <p>This proposal outlines a comprehensive enterprise partnership designed to transform <strong>{{CLIENT_NAME}}</strong>'s data infrastructure across your entire organization. We're not just building a dashboard—we're architecting a centralized profit intelligence ecosystem that connects your multi-store operations, delivers real-time insights to stakeholders at every level, and positions you as a data-driven leader in your market.</p>
+            </div>
+            
+            <div class="section">
+                <h2>The Enterprise Challenge</h2>
+                <p>As an organization managing significant e-commerce operations with {{AD_SPEND}} in monthly ad spend, you face unique complexity:</p>
+                <ul>
+                    <li>Multiple Shopify stores with consolidated reporting needs</li>
+                    <li>Cross-functional teams requiring different data views</li>
+                    <li>Complex attribution across digital and physical channels</li>
+                    <li>Integration requirements with ERP, CRM, and custom systems</li>
+                    <li>Executive stakeholders needing high-level strategic insights</li>
+                    <li>Operational teams requiring granular, real-time data</li>
+                    <li>Scalability concerns as you grow and acquire new brands</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>Enterprise Solution Architecture</h2>
+                
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>🏢 Multi-Store Consolidation</h4>
+                        <p>Unified dashboard aggregating data across all Shopify stores, regions, and brands with drill-down capabilities.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🔌 Advanced Integrations</h4>
+                        <p>Native connections to ERP systems, warehouse management, custom databases, and proprietary tools.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>👔 Dedicated Account Management</h4>
+                        <p>Your own profit intelligence strategist with quarterly business reviews and optimization roadmaps.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🔐 Enterprise Security</h4>
+                        <p>SOC 2 compliance, SSO with your identity provider, role-based access control, and audit logging.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📈 Predictive Analytics</h4>
+                        <p>Machine learning models for demand forecasting, churn prediction, and profit optimization.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🎯 Custom Development</h4>
+                        <p>Dedicated engineering resources for bespoke features, custom reports, and unique business logic.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Enterprise Deliverables</h2>
+                <ul>
+                    <li>Multi-tenant platform serving unlimited stores and brands</li>
+                    <li>Executive command center with KPI scorecards and alerts</li>
+                    <li>Department-specific dashboards for marketing, finance, and operations</li>
+                    <li>Advanced API for internal system integrations</li>
+                    <li>White-glove onboarding and migration assistance</li>
+                    <li>24/7 enterprise support with guaranteed SLA</li>
+                    <li>Quarterly strategic reviews and optimization sessions</li>
+                    <li>On-premise or private cloud deployment options</li>
+                    <li>Custom AI/ML models trained on your historical data</li>
+                    <li>Comprehensive documentation and team training</li>
+                </ul>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>🚀 Why Enterprise Partnership</h3>
+                <p>This isn't a vendor relationship—it's a strategic alliance. Your dedicated account manager becomes an extension of your team, proactively identifying optimization opportunities and ensuring your profit intelligence platform evolves with your business. We succeed when you succeed.</p>
+            </div>
+            
+            <div class="enterprise-benefits">
+                <div class="benefit-item">
+                    <div class="icon">⚡</div>
+                    <h4>Priority Response</h4>
+                    <p>15-minute response guarantee</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="icon">🎯</div>
+                    <h4>Dedicated Team</h4>
+                    <p>Account manager + engineer</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="icon">🔒</div>
+                    <h4>Enterprise Security</h4>
+                    <p>SOC 2 & compliance ready</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="icon">📊</div>
+                    <h4>Unlimited Scale</h4>
+                    <p>Grow without limits</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Investment</h2>
+                <div class="price-section">
+                    <h3>Custom Enterprise Pricing</h3>
+                    <div class="price-custom">Let's Talk</div>
+                    <p style="margin-top: 15px; opacity: 0.9;">Based on your specific requirements, store count, and integration complexity</p>
+                </div>
+                <p style="text-align: center; font-size: 1rem; opacity: 0.8;">Typical enterprise engagements start at $10,000/month with custom implementation investment</p>
+            </div>
+            
+            <div class="section">
+                <h2>Implementation Timeline</h2>
+                <div class="timeline">
+                    <span class="timeline-icon">📅</span>
+                    <div>
+                        <strong>4-6 Weeks to Full Deployment</strong>
+                        <p style="margin-top: 8px; opacity: 0.85;">Week 1-2: Discovery & architecture planning<br>
+                        Week 3-4: Development & integrations<br>
+                        Week 5: Testing & refinement<br>
+                        Week 6: Launch & team training</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Partnership Terms</h2>
+                <ul>
+                    <li>Annual partnership agreement with quarterly reviews</li>
+                    <li>Dedicated Slack/Teams channel for real-time collaboration</li>
+                    <li>Monthly executive summary reports</li>
+                    <li>99.9% uptime SLA with financial guarantees</li>
+                    <li>Data ownership and portability guarantees</li>
+                    <li>Flexible commercial terms based on growth milestones</li>
+                    <li>Early access to new features and beta programs</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>Next Steps</h2>
+                <p>We'd welcome the opportunity to host a discovery session with your leadership team. This 90-minute workshop will help us:</p>
+                <ul>
+                    <li>Map your current data landscape and pain points</li>
+                    <li>Define success metrics and ROI targets</li>
+                    <li>Design the optimal solution architecture</li>
+                    <li>Build a tailored implementation roadmap</li>
+                    <li>Finalize commercial terms aligned with your goals</li>
+                </ul>
+                <p style="margin-top: 20px;"><strong>Ready to explore a partnership?</strong> Reply to schedule your executive discovery session.</p>
+            </div>
+            
+            <div class="footer">
+                <p style="font-size: 1rem;">Prepared exclusively for {{CLIENT_NAME}} by Rior Systems</p>
+                <p style="margin-top: 15px; opacity: 0.7;">This proposal contains confidential commercial information</p>
+                <p style="margin-top: 10px; font-size: 0.85rem;">Valid for 30 days from date of issue</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

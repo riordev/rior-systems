@@ -1,0 +1,32 @@
+{
+  "client_name": "Harbor Goods",
+  "store_url": "harbor-goods.myshopify.com",
+  "ad_spend": "$25,000/month",
+  "contact_name": "Sarah Chen",
+  "contact_email": "sarah@harborgoods.com",
+  "industry": "Home & Garden / Sustainable Products",
+  "company_size": "15 employees",
+  "annual_revenue": "$2.1M",
+  "current_challenges": [
+    "Can't see true profitability by SKU after ad costs",
+    "Manual spreadsheet reporting takes 10+ hours/week",
+    "No visibility into customer LTV by acquisition channel",
+    "Missing inventory cost tracking in real-time"
+  ],
+  "primary_goals": [
+    "Understand true product-level profitability",
+    "Reduce reporting time to under 1 hour/week",
+    "Optimize ad spend based on actual ROAS",
+    "Identify and cut underperforming products"
+  ],
+  "tech_stack": {
+    "ecommerce": "Shopify Plus",
+    "advertising": ["Meta Ads", "Google Ads", "TikTok Ads"],
+    "email": "Klaviyo",
+    "analytics": "Google Analytics 4"
+  },
+  "notes": "High-growth brand, founder-led, very data-driven but current tools aren't giving them the insights they need. Ready to move fast.",
+  "discovery_call_date": "2025-01-15",
+  "proposal_sent_date": "2025-01-16",
+  "follow_up_date": "2025-01-23"
+}
